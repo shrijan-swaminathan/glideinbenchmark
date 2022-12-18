@@ -1,0 +1,22 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: glideinbenchmark
+Upstream-Contact: The GlideinWMS Team <glideinwms@fnal.gov>
+Source: https://github.com/glideinwms/glideinbenchmark
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
+
+Files: src/*.jsonnet src/*.libsonnet src/*/readme src/*.conf src/*.fixture src/*.csv src/*/test_filename_typo.jsonet src/*/log_sample.txt
+Copyright: 2022 Fermi Research Alliance, LLC
+License: Apache-2.0
+
+Files: .codecov.yml .coveragerc .editorconfig .gitignore .lgtm.yaml .pep8speaks.yml .pre-commit-config.yaml .pylintrc pyproject.toml
+Copyright: 2022 Fermi Research Alliance, LLC
+License: Apache-2.0
+
+Files: pkg/rpm/* pkg/systemd/*
+Copyright: 2022 Fermi Research Alliance, LLC
+License: Apache-2.0
