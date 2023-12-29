@@ -10,13 +10,17 @@ Source: https://github.com/glideinwms/glideinbenchmark
 # License: ...
 
 Files: src/*.jsonnet src/*.libsonnet src/*/readme src/*.conf src/*.fixture src/*.csv src/*/test_filename_typo.jsonet src/*/log_sample.txt
-Copyright: 2022 Fermi Research Alliance, LLC
+Copyright: 2023 Fermi Research Alliance, LLC
 License: Apache-2.0
 
 Files: .codecov.yml .coveragerc .editorconfig .gitignore .lgtm.yaml .pep8speaks.yml .pre-commit-config.yaml .pylintrc pyproject.toml
-Copyright: 2022 Fermi Research Alliance, LLC
+Copyright: 2023 Fermi Research Alliance, LLC
 License: Apache-2.0
 
 Files: pkg/rpm/* pkg/systemd/*
-Copyright: 2022 Fermi Research Alliance, LLC
+Copyright: 2023 Fermi Research Alliance, LLC
+License: Apache-2.0
+
+Files: test/fixtures/*
+Copyright: 2023 Fermi Research Alliance, LLC
 License: Apache-2.0
