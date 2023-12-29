@@ -8,7 +8,7 @@ default_language_version:
   node: 17.9.0
 repos:
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: v4.1.0
+    rev: v4.4.0
     hooks:
       - id: check-ast
       - id: check-docstring-first
@@ -22,21 +22,21 @@ repos:
         args:
           - "--markdown-linebreak-ext=md"
   - repo: "https://github.com/pre-commit/pygrep-hooks"
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
       - id: python-check-blanket-noqa
       - id: python-check-blanket-type-ignore
       - id: python-use-type-annotations
   - repo: "https://github.com/pycqa/isort"
-    rev: 5.10.1
+    rev: 5.13.2
     hooks:
       - id: isort
   - repo: "https://github.com/psf/black"
-    rev: 22.3.0
+    rev: 23.12.0
     hooks:
       - id: black
   - repo: "https://github.com/pre-commit/mirrors-prettier"
-    rev: v2.6.2
+    rev: v3.1.0
     hooks:
       - id: prettier
         exclude_types:
@@ -51,7 +51,7 @@ repos:
         args:
           - "--py36-plus"
   - repo: "https://github.com/fsfe/reuse-tool"
-    rev: v0.14.0
+    rev: v2.1.0
     hooks:
       - id: reuse
         additional_dependencies:

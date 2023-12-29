@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 Fermi Research Alliance, LLC
+SPDX-FileCopyrightText: 2023 Fermi Research Alliance, LLC
 SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -9,7 +9,15 @@ SPDX-License-Identifier: Apache-2.0
 
 # GlideinBenchmark
 
-Application to benchmark GlideinWMS provisioned resources
+Application to benchmark GlideinWMS provisioned resources.
+
+Runner_config allws to configure the GlideinWMS Factory to automatically run benchmarks on Glideins.
+
+Runner alloows to trigger a benchmark on a specific resource.
+
+Benchmarks are run using images defined in the [GlideinWMS containers repo](https://github.com/glideinWMS/containers/tree/main/worker/benchmark).
+
+Viewer provides access to the benchmarks' results.
 
 This code is distributed under the Apache 2.0 license, see the [LICENSE](LICENSE) file.
 

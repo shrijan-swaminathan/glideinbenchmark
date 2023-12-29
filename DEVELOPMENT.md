@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2022 Fermi Research Alliance, LLC
+SPDX-FileCopyrightText: 2023 Fermi Research Alliance, LLC
 SPDX-License-Identifier: Apache-2.0
 -->
 
@@ -50,12 +50,12 @@ REUSE is installed as development dependency or you can install it manually
 - to check compliance you can use `reuse lint`. This is the command run also by the pre-commit and CI checks
 - you can add on top of new files [SPDX license notices](https://spdx.org/licenses/) like
   ```
-  # SPDX-FileCopyrightText: 2022 Fermi Research Alliance, LLC
+  # SPDX-FileCopyrightText: 2023 Fermi Research Alliance, LLC
   # SPDX-License-Identifier: Apache-2.0
   ```
 - or let REUSE do that for you (`FILEPATH` is your new file):
   ```
-  reuse addheader --year 2022 --copyright="Fermi Research Alliance, LLC" \
+  reuse addheader --year 2023 --copyright="Fermi Research Alliance, LLC" \
     --license="Apache-2.0" --template=compact FILEPATH
   ```
 - Files that are not supported and have no comments to add the SPDX notice
