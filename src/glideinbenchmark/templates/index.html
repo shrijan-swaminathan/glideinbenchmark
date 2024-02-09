@@ -44,6 +44,7 @@ SPDX-License-Identifier: Apache-2.0
     <h1>Glidein Benchmark</h1>
     <form method="POST">
       <table>
+        {% if entries %}
         <tr>
           <th>Entry Name</th>
           <th>Config Status</th>
@@ -51,51 +52,54 @@ SPDX-License-Identifier: Apache-2.0
           <th>Bmk Names</th>
           <th>Bmk Status</th>
         </tr>
-        {% for entry,status in entries.items() %}
-        <tr>
-          <td>{{ entry }}</td>
-          <td>{{ status }}</td>
-          <td>
-            <input
-              type="radio"
-              id="{{ entry }}_enable"
-              name="{{ entry }}_status"
-              value="enable"
-            />
-            <label for="{{ entry }}_enable">Enable</label>
-            <input
-              type="radio"
-              id="{{ entry }}_disable"
-              name="{{ entry }}_status"
-              value="disable"
-            />
-            <label for="{{ entry }}_disable">Disable</label>
-            <input
-              type="radio"
-              id="{{ entry }}_remove"
-              name="{{ entry }}_status"
-              value="remove"
-            />
-            <label for="{{ entry }}_remove">Remove</label>
-            <input
-              type="radio"
-              id="{{ entry }}_NA"
-              name="{{ entry }}_status"
-              value="NA"
-              checked="true"
-            />
-            <label for="{{ entry }}_NA">NA</label>
-          </td>
-          {% endfor %}
-          <td>
-            <label for="benchmark_names">Bmk Names</label>
-          </td>
-          <td>
-            <label for="benchmark_status">Bmk Status</label>
-          </td>
-        </tr>
-      </table>
-      <input type="submit" value="Save" />
+          {% for entry,status in entries.items() %}
+          <tr>
+            <td>{{ entry }}</td>
+            <td>{{ status }}</td>
+            <td>
+              <input
+                type="radio"
+                id="{{ entry }}_enable"
+                name="{{ entry }}_status"
+                value="enable"
+              />
+              <label for="{{ entry }}_enable">Enable</label>
+              <input
+                type="radio"
+                id="{{ entry }}_disable"
+                name="{{ entry }}_status"
+                value="disable"
+              />
+              <label for="{{ entry }}_disable">Disable</label>
+              <input
+                type="radio"
+                id="{{ entry }}_remove"
+                name="{{ entry }}_status"
+                value="remove"
+              />
+              <label for="{{ entry }}_remove">Remove</label>
+              <input
+                type="radio"
+                id="{{ entry }}_NA"
+                name="{{ entry }}_status"
+                value="NA"
+                checked="true"
+              />
+              <label for="{{ entry }}_NA">NA</label>
+            </td>
+            {% endfor %}
+            <td>
+              <label for="benchmark_names">Bmk Names</label>
+            </td>
+            <td>
+              <label for="benchmark_status">Bmk Status</label>
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="Save" />
+      {% else %}
+        <p style="font-size: 20px;">No entries found</p>
+      {% endif %}
     </form>
   </body>
 </html>
