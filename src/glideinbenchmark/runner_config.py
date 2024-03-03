@@ -16,7 +16,7 @@ from glideinbenchmark import factory_parser
 
 app = Flask(__name__)
 # xml_file_dir = "/etc/gwms-factory/glideinWMS.xml"  # './xml_files' # should be /etc/gwms-factory/config.d but is xml_files temporarily
-# xml_file_dir = './temp_factory.xml'
+xml_file_dir = './temp_factory.xml'
 # xml_file_dir = 'temp_factory.xml'
 # xml_file_dir = './testing.xml'
 # xml_file_dir = './'
