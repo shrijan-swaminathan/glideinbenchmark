@@ -16,25 +16,26 @@ from glideinbenchmark import factory_parser
 
 app = Flask(__name__)
 # xml_file_dir = "/etc/gwms-factory/glideinWMS.xml"  # './xml_files' # should be /etc/gwms-factory/config.d but is xml_files temporarily
-xml_file_dir = './temp_factory.xml'
+# xml_file_dir = './temp_factory.xml'
 # xml_file_dir = 'temp_factory.xml'
 # xml_file_dir = './testing.xml'
-# xml_file_dir = './'
+# xml_file_dir = '
+xml_file_dir = '../../test/fixtures/etc_gwms-factory/glideinWMS.xml'
 script_path = (
     factory_parser.__file__
 )
 
 app.config['XML_CONFIG'] = xml_file_dir
 
-@app.route("/", methods=["GET", "POST"])
-def index():
+@app.route("/runner/config", methods=["GET", "POST"])
+def runner_config():
     """
     Creates the page controlling the Factory configuration
-    This function handles the index route of the Flask application.
+    This function handles the runner_config route of the Flask application.
     The xml_config path is set in the Flask application's configuration before the application is run.
     """
     xml_config = app.config['XML_CONFIG']
-    print(xml_config.endswith(".xml") and os.path.isfile(xml_config))
+
     if xml_config.endswith(".xml") and os.path.isfile(xml_config):
         xml_files = [xml_config]
         xml_config = os.path.join(os.path.dirname(xml_config), "config.d")
@@ -42,22 +43,23 @@ def index():
         xml_files = []
     # get a list of all the xml files in the directory
     if os.path.isdir(xml_config):
-        xml_files += [f for f in os.listdir(xml_config) if f.endswith(".xml")]
+        xml_files += [(xml_file_dir + f) for f in os.listdir(xml_config) if f.endswith(".xml")]
     print(xml_files)
     # set a dict to store all the entries in
     entries = {}
     # Check if there are any xml files in the directory
     if len(xml_files) == 0:
         print("No xml files found")
-        return render_template("index.html", entries=[])
+        return render_template("runner_config.html", entries=[])
     # go through all the xml files and get the entries in each
     for xml_file in xml_files:
         xml_name = os.path.basename(xml_file).split(".")[0]
-        xml_file = os.path.basename(xml_file)
+        xml_file = os.path.abspath(xml_file)
         # check if file exists and if not, return empty list
         if factory_parser.check_file_exists(xml_file) == False:
+            print(xml_file)
             print("factory location incorrect")
-            return render_template("index.html", entries=[])
+            return render_template("runner_config.html", entries=[])
         if request.method == "POST":
             # get the entries from the current xml file
             curr_entries = factory_parser.list_entries(xml_file=xml_file)
@@ -104,7 +106,7 @@ def index():
             # add the entry name to the dict with entry name
             entries[entry_name] = curr_entries[entry]
         # entries = curr_entries
-    return render_template("index.html", entries=entries)
+    return render_template("runner_config.html", entries=entries)
 
 
 if __name__ == "__main__":

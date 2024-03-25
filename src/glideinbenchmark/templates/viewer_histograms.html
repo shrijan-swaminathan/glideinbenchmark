@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +38,11 @@
     </style>
 </head>
 <body>
-    <h1>Glidein Benchmark</h1>
-    <a href="/runner">Runner</a>
-    <a href="/viewer">Viewer</a>
+    <h1>Glidein Benchmark Viewer</h1>
+    <a href="/">Home</a>
+    <a href="/viewer">Back to Viewer</a>
+    {% for encoded_img in encoded_imgs %}
+        <img src="data:image/png;base64,{{ encoded_img }}" alt="Histogram">
+    {% endfor %}
 </body>
 </html>

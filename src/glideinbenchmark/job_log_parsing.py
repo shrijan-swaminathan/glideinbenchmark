@@ -2,8 +2,8 @@ import os
 import xml.etree.ElementTree as ET
 import csv
 
-directory = "./"
-output_directory = "./output"
+directory = "../../test/fixtures/job_logs_location/"
+output_directory = "../../test/fixtures/job_logs_location/output_db"
 
 def find_matching_files(directory):
     matching_files = []
@@ -80,9 +80,7 @@ def xml_content_to_csv(xml_content, output_directory, job_name):
 def process_matching_files(directory):
     matching_files = find_matching_files(directory)
     for file in matching_files:
-        # print(file)
-        file_path = os.path.join(directory, file)
-        xml_content = extract_xml_content(file_path)
+        xml_content = extract_xml_content(file)
         if xml_content is not None:
             # remove every value before the last / and add the output directory
             job_name = os.path.basename(file)[4:-4]
