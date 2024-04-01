@@ -1,9 +1,6 @@
 from flask import Flask, render_template, redirect, url_for
-from runner_config import runner_config
-from output_plot_creation import create_histogram
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from io import BytesIO
-import base64
+from runner import runner_config
+from viewer import histograms
 
 app = Flask(__name__)
 
@@ -16,17 +13,8 @@ def viewer():
     return render_template('viewer.html')
 
 @app.route('/viewer/histograms')
-def histograms():
-    figs = create_histogram()
-    encoded_imgs = []
-    for fig in figs:
-        canvas = FigureCanvas(fig)
-        output = BytesIO()
-        canvas.print_png(output)
-        encoded_img = base64.b64encode(output.getvalue()).decode('ascii')
-        encoded_imgs.append(encoded_img)
-    return render_template('viewer_histograms.html', encoded_imgs=encoded_imgs)
-
+def plot_histograms():
+    return histograms()
 
 @app.route('/runner')
 def runner():

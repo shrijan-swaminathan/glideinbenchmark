@@ -28,7 +28,4 @@ def create_histogram():
 
             except FileNotFoundError:
                 print(f"File not found: {file_path}")
-
-    return figures  # Return the list of figures
-# maybe instead of doing by job bar chart, do histogram of the results
-# https://matplotlib.org/stable/gallery/user_interfaces/web_application_server_sgskip.html
+    return figures  
