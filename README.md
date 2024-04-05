@@ -28,6 +28,6 @@ There is a specfic document on this at [DEVELOPMENT.md](DEVELOPMENT.md)
 ## To run the web application
 
 To run the web application, you need to export pythonpath in the following format:
-    export PYTHONPATH="$PYTHONPATH:{directory_to_glideinbenchmark}/glideinbenchmark/src/"
+```export PYTHONPATH="$PYTHONPATH:{directory_to_glideinbenchmark}/glideinbenchmark/src/"```
 then you can run the web application with the following command:
-    python3 glideinbenchmark/src/glideinbenchmark/index.py
+```python3 glideinbenchmark/src/glideinbenchmark/index.py```
