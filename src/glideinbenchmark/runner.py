@@ -13,7 +13,8 @@ from glideinbenchmark import factory_parser
 # RUN THIS BEFORE RUNNING THE FILE export PYTHONPATH="$PYTHONPATH:/home/swamina7/GlideinBenchmark_webapp/glideinbenchmark/src/"
 
 app = Flask(__name__)
-xml_file_dir = '../../test/fixtures/etc_gwms-factory/'
+# xml_file_dir = '../../test/fixtures/etc_gwms-factory/'
+xml_file_dir = '/etc/gwms-factory/'
 script_path = (
     factory_parser.__file__
 )
