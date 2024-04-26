@@ -17,7 +17,7 @@ def create_new_attr(root, value):
     new_attrib.attrib["const"] = "False"
     new_attrib.attrib["glidein_publish"] = "True"
     new_attrib.attrib["job_publish"] = "False"
-    new_attrib.attrib["parameter"] = "False"
+    new_attrib.attrib["parameter"] = "True"
     new_attrib.attrib["publish"] = "True"
     new_attrib.attrib["type"] = "string"
     new_attrib.attrib["value"] = value
