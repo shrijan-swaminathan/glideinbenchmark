@@ -1,6 +1,6 @@
-from flask import Flask, render_template, redirect, url_for
-from runner import runner_config
-from viewer import histograms
+from flask import Flask, render_template
+from runner import *
+from viewer import *
 
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def home():
 
 @app.route('/viewer')
 def viewer():
-    return render_template('viewer.html')
+    return viewer_index()
 
 @app.route('/viewer/histograms')
 def plot_histograms():
@@ -25,4 +25,4 @@ def runner_config_route():
     return runner_config()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')

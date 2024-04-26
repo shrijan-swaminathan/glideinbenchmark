@@ -1,7 +1,7 @@
-job_name,result
-58.79,6.61
-44.51,21.61
-84.45,97.71
-78.13,77.57
-26.37,40.96
-19.37,33.31
+job_name,factory,entry,result
+58.79,gwms-factory,TEST_ENTRY,6.61
+44.51,gwms-factory,TEST_ENTRY,21.61
+84.45,gwms-factory,TEST_ENTRY,97.71
+78.13,gwms-factory,TEST_ENTRY,77.57
+26.37,gwms-factory,TEST_ENTRY,40.96
+19.37,gwms-factory,TEST_ENTRY,33.31

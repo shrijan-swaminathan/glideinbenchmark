@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import csv
 
 directory = "../../test/fixtures/job_logs_location/"
+# directory = "/var/log/gwms-factory"
 output_directory = "../../test/fixtures/job_logs_location/output_db"
 
 def find_matching_files(directory):
@@ -14,6 +15,8 @@ def find_matching_files(directory):
     return matching_files
 
 def extract_xml_content(file_path):
+    entry_name = file_path.split("entry_")[1].split("/")[0]
+    factory_name = file_path.split("user_decisionengine")[0].split("/")[-3]
     with open(file_path, "r") as f:
         contents = f.readlines()
         start_index = None
@@ -26,13 +29,17 @@ def extract_xml_content(file_path):
                 break
         if start_index is not None and end_index is not None:
             xml_content = "".join(contents[start_index:end_index])
+            # Add the entry and factory lines at the second to last line with correct spacing
+            lines = xml_content.split("\n")
+            second_to_last_line = lines[-3]
+            indent = second_to_last_line[:second_to_last_line.index("<")]
+            xml_content = "\n".join([lines[0]] + [f"{indent}<factory>{factory_name}</factory>", f"{indent}<entry>{entry_name}</entry>"] + lines[1:])
             return xml_content
         else:
             return None
 
 def xml_content_to_csv(xml_content, output_directory, job_name):
     try:
-        print(job_name)
         # get the root into an Etree
         root = ET.fromstring(xml_content)
         # Find the name associated with the main class
@@ -84,7 +91,9 @@ def process_matching_files(directory):
         if xml_content is not None:
             # remove every value before the last / and add the output directory
             job_name = os.path.basename(file)[4:-4]
+            # print(xml_content)
             xml_content_to_csv(xml_content, output_directory, job_name)
+    return directory
 
 if __name__ == "__main__":
     # Usage
